@@ -1,5 +1,5 @@
 var jasmine = require("jasmine")
-var app = require("../getPrimes/getPrimes.js");
+var app = require("../getPrimes/getPrime.js");
 
 
 describe("Prime Number tests ", function() {
