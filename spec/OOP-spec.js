@@ -15,7 +15,7 @@ var app = require("../OOP/OOP.js");
     });
 
     it("The Animal should be called 'Animal' if no name is passed as a parameter", function() {
-      var goat = new Animal();
+      var goat = new app.Animal();
       expect(goat.name).toEqual('Animal');
       expect(goat.nofleg).toBe(0);
     });

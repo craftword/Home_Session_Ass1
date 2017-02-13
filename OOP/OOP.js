@@ -1,4 +1,6 @@
-function Animal(name, nofleg ) {
+
+module.exports = {
+  Animal = function (name, nofleg ) {
     this.name = "Animal";
     this.nofleg = 0;
 
@@ -24,7 +26,7 @@ Animal.prototype.movement = function () {
 Mammal.prototype = new Animal();
 Mammal.prototype.constructor = Mammal;
 
-function Mammal(name) {
+ Mammal = function(name) {
   // base contruction
   Animal.call(this, name);
 
@@ -39,5 +41,7 @@ Mammal.prototype.skin = function(typeOfSkin) {
   }else {
     return "Others";
   }
+
+}
 
 }
