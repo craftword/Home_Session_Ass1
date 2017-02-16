@@ -1,47 +1,49 @@
 
-module.exports = {
-  Animal = function (name, nofleg ) {
-    this.name = "Animal";
-    this.nofleg = 0;
 
+var Animal = function (name, noleg){
+	 (typeof name === 'undefined')? this.name = "Animal" : this.name = name;
+	 (typeof noleg === 'undefined')? this.noleg = 0 : this.noleg = noleg;
+	
+	this.movement = function(noleg) {
+	   if(noleg == 0) {
+           return 'crawling';
+         }
+        else if(noleg == 2) {
+          return 'flying';
+        }else{
+         return 'walking';
+         }
 
+	  }
+	}
+var Mammal = function (name) {
+	// implement closure inheritance
+    this.inheritsFrom = Animal;
+    this.inheritsFrom(name);
+	this.skin = function(typeOfSkin) {
+           if(typeOfSkin === 'scales') {
+              return 'The Mammal is a Whale';
+            }else if(typeOfSkin === 'no Hair') {
+               return 'The Mammal is a Human Being';
+          }else {
+             return 'Others';
+      }
+
+	}
+	
 }
 
-// check if the animal is crawling, walking or flying 
-
-Animal.prototype.movement = function () {
-  if(this.nofleg === 0) {
-    return "crawling";
-  }
-  else if(this.nofleg === 2) {
-    return "flying";
-  }else{
-    return "walking";
-  }
-
-}
+ 
+exports.Animal = Animal;
+exports.Mammal = Mammal;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	
 
 
-// Mammal inherits from Animal
-Mammal.prototype = new Animal();
-Mammal.prototype.constructor = Mammal;
 
- Mammal = function(name) {
-  // base contruction
-  Animal.call(this, name);
-
-}
-// Mammal type of skin method 
-Mammal.prototype.skin = function(typeOfSkin) {
-  if(this.typeOfSkin == "scales") {
-    return "The Mammal is a Whale";
-  }else if(this.typeOfSkin == "no Hair") {
-    return "The Mammal is a Human Being";
-
-  }else {
-    return "Others";
-  }
-
-}
-
-}
